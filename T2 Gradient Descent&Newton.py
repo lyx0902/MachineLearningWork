@@ -117,28 +117,28 @@ if __name__ == "__main__":
     # 绘制损失函数曲线
     plt.figure(figsize=(8, 6))
     plot_cost_history(cost_history_gd, "Gradient Descent")
-    plt.savefig("cost_gd.png")
+    plt.savefig("T2Graphs/cost_gd.png")
     plt.show()
 
     plt.figure(figsize=(8, 6))
     plot_cost_history(cost_history_sgd, "Stochastic Gradient Descent")
-    plt.savefig("cost_sgd.png")
+    plt.savefig("T2Graphs/cost_sgd.png")
     plt.show()
 
     plt.figure(figsize=(8, 6))
     plot_cost_history(cost_history_newton, "Newton's Method")
-    plt.savefig("cost_newton.png")
+    plt.savefig("T2Graphs/cost_newton.png")
     plt.show()
 
     # 绘制决策边界
     plot_decision_boundary(X, y, theta_gd, "Gradient Descent")
-    plt.savefig("boundary_gd.png")
+    plt.savefig("T2Graphs/boundary_gd.png")
     plt.show()
 
     plot_decision_boundary(X, y, theta_sgd, "Stochastic Gradient Descent")
-    plt.savefig("boundary_sgd.png")
+    plt.savefig("T2Graphs/boundary_sgd.png")
     plt.show()
 
     plot_decision_boundary(X, y, theta_newton, "Newton's Method")
-    plt.savefig("boundary_newton.png")
+    plt.savefig("T2Graphs/boundary_newton.png")
     plt.show()
