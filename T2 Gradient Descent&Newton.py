@@ -14,7 +14,7 @@ def compute_cost(X, y, theta):
     return cost
 
 # 梯度下降实现 Logistic 回归
-def logistic_regression_gd(X, y, alpha=0.01, epochs=1000):
+def logistic_regression_gd(X, y, alpha=0.01, epochs=50):
     m, n = X.shape
     theta = np.zeros(n)
     cost_history = []
@@ -27,7 +27,7 @@ def logistic_regression_gd(X, y, alpha=0.01, epochs=1000):
     return theta, cost_history
 
 # 随机梯度下降实现 Logistic 回归
-def logistic_regression_sgd(X, y, alpha=0.01, epochs=100):
+def logistic_regression_sgd(X, y, alpha=0.01, epochs=50):
     m, n = X.shape
     theta = np.zeros(n)
     cost_history = []
@@ -43,7 +43,7 @@ def logistic_regression_sgd(X, y, alpha=0.01, epochs=100):
     return theta, cost_history
 
 # 牛顿法实现 Logistic 回归
-def logistic_regression_newton(X, y, epochs=10):
+def logistic_regression_newton(X, y, epochs=50):
     m, n = X.shape
     theta = np.zeros(n)
     cost_history = []
@@ -101,13 +101,13 @@ if __name__ == "__main__":
     X, y = load_and_preprocess_data()
 
     # 梯度下降
-    theta_gd, cost_history_gd = logistic_regression_gd(X, y, alpha=0.1, epochs=1000)
+    theta_gd, cost_history_gd = logistic_regression_gd(X, y, alpha=0.1, epochs=50)
 
     # 随机梯度下降
-    theta_sgd, cost_history_sgd = logistic_regression_sgd(X, y, alpha=0.1, epochs=100)
+    theta_sgd, cost_history_sgd = logistic_regression_sgd(X, y, alpha=0.1, epochs=50)
 
     # 牛顿法
-    theta_newton, cost_history_newton = logistic_regression_newton(X, y, epochs=10)
+    theta_newton, cost_history_newton = logistic_regression_newton(X, y, epochs=50)
 
     # 打印最终结果
     print("Logistic 回归 (梯度下降) 参数:", theta_gd)
