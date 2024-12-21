@@ -3,7 +3,7 @@ from sklearn.model_selection import KFold
 from sklearn.preprocessing import MinMaxScaler
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Dense, Input
 
 # Load data from ex4x.dat and ex4y.dat
 X = np.loadtxt('dataset/ex4x.dat')
@@ -16,10 +16,10 @@ X = scaler.fit_transform(X)
 # K-Fold Cross Validation
 kf = KFold(n_splits=5, shuffle=True, random_state=42)
 
-hidden_layer_sizes = [10, 20]  # Different numbers of hidden units
-activation_functions = ['sigmoid', 'relu']  # Different activation functions
-learning_rates = [0.01, 0.1]  # Different learning rates
-epochs = 500
+hidden_layer_sizes = [10, 20, 30]  # 不同的隐藏层大小
+activation_functions = ['sigmoid', 'relu']  # 不同的激活函数
+learning_rates = [0.001,0.01,0.1,0.5]  # 不同的学习率
+epochs = 100
 
 results = []
 
@@ -34,7 +34,8 @@ for hidden_layer_size in hidden_layer_sizes:
 
                 # Build the model
                 model = Sequential([
-                    Dense(hidden_layer_size, activation=activation_function, input_shape=(X.shape[1],)),
+                    Input(shape=(X.shape[1],)),
+                    Dense(hidden_layer_size, activation=activation_function),
                     Dense(1, activation='sigmoid')
                 ])
 
